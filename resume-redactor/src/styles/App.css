@@ -1,28 +1,24 @@
 :root {
   --gray: #ccc;
   --white: #fff;
+  --darkgray: #434343;
   --blacklight: #4e4e4e;
   --graylight: #e6e6e6;
 }
 
 .main-content {
-  padding: 1rem;
-  border: 1px solid var(--gray);
-  margin-left: 5rem;
-  margin-right: 5rem;
-  background-color: var(--blacklight);
-  @media screen and (max-width: 768px){
-    border: none;
-  }
-}
-
-.editor-preview {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 2rem;
+  padding: 1rem;
+  gap: 1rem;
+  border: 1px solid var(--gray);
+  margin-left: 5rem;
+  margin-right: 5rem;
+  background-color: var(--graylight);
   color: var(--blacklight);
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px){
+    border: none;
     flex-direction: column;
     align-items: center;
   }
@@ -38,7 +34,7 @@
   color: var(--blacklight);
 }
 .resume-preview h2 {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1.5px solid var(--blacklight);
   padding-bottom: 0.5rem;
 }
 
@@ -49,6 +45,13 @@
   width: 100%;
   padding: 2rem;
   background-color: var(--white);
+}
+
+.editor input {
+  border-radius: 3px;
+  border: 1px solid var(--graylight);
+  outline: none;
+  height: 1.5rem;
 }
 
 .hgroup {
@@ -63,18 +66,22 @@
 }
 
 .sectionType {
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
+  padding-top: 0.32rem;
+  padding-bottom: 0.32rem;
+  border-radius: 3px;
+  border: 1px solid var(--graylight);
+  outline: none;
+  color: var(--blacklight);
 }
 
 .section-options {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.8rem;
 }
 
-.section-options input {
-  height: 1.3rem;
+.preview-section {
+  border-bottom: 1px solid var(--graylight);
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -84,8 +91,19 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .section-options button {
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
+  cursor: pointer;
+  padding-top: 0.32rem;
+  padding-bottom: 0.32rem;
+  background-color: var(--graylight);
+  border: none;
+  border-radius: 3px;
+  font-size: 0.92rem;
+  transition-duration: 0.3s;
+}
+
+.section-options button:hover {
+  background-color: var(--darkgray);
+  color: var(--white);
 }
 
 .contentH1 {
@@ -100,4 +118,14 @@ input[type=number]::-webkit-outer-spin-button {
   background: none;
   border: none;
   padding-top: 0.5rem;
+}
+
+.preview-contact {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.preview-contact p {
+  font-size: 0.9rem;
 }

@@ -136,9 +136,9 @@ export default function Editor({sections, setSections, resumeRef}: EditorProps) 
 
             <div id="sections-list">
             <article className="section">
-                <div style={{ marginTop: '1rem' }} >
+                <div style={{ marginTop: '1.3rem' }} >
                     {sections.map((section) => (
-                        <div key={section.id} style={{ border: "1px solid #ccc", padding: 10, marginBottom: 10 }}>
+                        <div key={section.id} style={{ marginBottom: 10 }}>
                             <h3>{section.type}</h3>
                             {renderSectionForm(section)}
                         </div>

@@ -9,10 +9,8 @@ function App() {
   const resumeRef = useRef<HTMLDivElement>(null);
   return (
   <main className='main-content'>
-    <div className="editor-preview">
       <Editor sections={sections} setSections={setSections} resumeRef={resumeRef} />
       <Preview sections={sections} resumeRef={resumeRef}/>
-    </div>
   </main>
   );
 }

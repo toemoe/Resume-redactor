@@ -19,9 +19,11 @@ export default function Preview({ sections, resumeRef }: PreviewProps) {
 
   return (
     <section ref={resumeRef} id="resume" className="resume-preview">
-      <h2>{name}</h2>
+      <h2 style={{ padding: 0, margin: 0, paddingBottom: 10}}>{name}</h2>
+      <div className="preview-contact">
       <p><strong>Email:</strong> {email}</p>
       <p><strong>Phone:</strong> {phone}</p>
+      </div>
       <div className="preview">
         {sections.map((section) => {
           if (section.type === 'Experience') {
