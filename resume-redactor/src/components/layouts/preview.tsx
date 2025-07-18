@@ -40,7 +40,7 @@ export default function Preview({ sections }: PreviewProps) {
                 </div>
               )
             }
-            if (section.type === 'Certificate') {
+            if (section.type === 'Certificates') {
               const { certificate, date } = section.data;
               return (
                 <div className="preview-section" key={section.id} >
