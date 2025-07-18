@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import type { Section, SectionType } from '../types';
+import DownloadPdf from '../download';
 
 type EditorProps = {
     sections: Section[];
     setSections: React.Dispatch<React.SetStateAction<Section[]>>;
+    resumeRef: React.RefObject<HTMLDivElement | null>;
 }
 
-export default function Editor({sections, setSections}: EditorProps) {
+export default function Editor({sections, setSections, resumeRef}: EditorProps) {
     const [selectedType, setSelectedType] = useState<string>('');
 
     const handleAddSection = function () {
@@ -114,7 +116,10 @@ export default function Editor({sections, setSections}: EditorProps) {
     return (
         <section className="editor">
             <hgroup className="hgroup">
+                <div className='contentH1'>
                 <h2>Resume Redactor</h2>
+                <DownloadPdf targetRef={resumeRef} fileName="resume" />
+                </div>
                 <h3>Add and option section</h3>
             </hgroup>
             <div className="section-options">
