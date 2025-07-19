@@ -1,10 +1,5 @@
 import React from 'react';
-
-interface Section {
-  id: string;
-  type: string;
-  data: Record<string, string>;
-}
+import { Section } from '../types';
 
 interface PreviewProps {
   sections: Section[];
@@ -58,7 +53,7 @@ export default function Preview({ sections, resumeRef }: PreviewProps) {
                 if (type === 'Education') {
                   return (
                     <div key={section.id}>
-                      <p><strong>{data.institute || 'Institute'}</strong>, {data.degree || 'Degree'} ({data.period || 'XX.XX.XXXX'})</p>
+                      <p><strong>{data.institute || 'Institute name'}</strong>, {data.degree || 'Degree'} ({data.period || 'XX.XX.XXXX'})</p>
                     </div>
                   );
                 }
@@ -66,7 +61,7 @@ export default function Preview({ sections, resumeRef }: PreviewProps) {
                 if (type === 'Certificates') {
                   return (
                     <div key={section.id}>
-                      <p><strong>{data.certificate || 'Certificate'}</strong>, {data.date || 'XX.XX.XXXX'}</p>
+                      <p><strong>{data.certificate || 'Name certificate'}</strong>, {data.date || 'XX.XX.XXXX'}</p>
                     </div>
                   );
                 }
@@ -74,7 +69,20 @@ export default function Preview({ sections, resumeRef }: PreviewProps) {
                 if (type === 'Skills') {
                   return (
                     <div key={section.id}>
-                      <p><strong>{data.skills || 'skills'}</strong></p>
+                      <p><strong>{data.skills || 'Your skills'}</strong></p>
+                    </div>
+                  );
+                }
+                if (type === 'Portfolio') {
+                  return (
+                    <div key={section.id}>
+                      {data.image && (
+                        <div>
+                          <p><strong>{data.projectName || 'Project name'}</strong></p>
+                          <img src={data.image} alt="Portfolio" style={{ width: '100%', height: 300}}/>
+                          <p>{data.description}</p>
+                        </div>
+                      )}
                     </div>
                   );
                 }

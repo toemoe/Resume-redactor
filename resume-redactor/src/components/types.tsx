@@ -1,4 +1,4 @@
-export type SectionType = 'Experience' | 'Projects' | 'Skills' | 'Certificates' | 'About' | 'Education';
+export type SectionType = 'Experience' | 'Projects' | 'Skills' | 'Certificates' | 'About' | 'Education' | 'Portfolio';
 
 export interface Section {
     id: string;

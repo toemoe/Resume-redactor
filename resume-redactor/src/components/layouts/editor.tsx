@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import type { Section, SectionType } from '../types';
 import DownloadPdf from '../download';
+import UploadImage from '../uploadImage';
 
 type EditorProps = {
     sections: Section[];
@@ -26,6 +27,21 @@ export default function Editor({sections, setSections, resumeRef}: EditorProps) 
     const handleDeleteSection = (id: string) => {
         setSections((prev) => prev.filter((section) => section.id !== id));
     };
+
+    const handleImageUpload = (file: File | null, sectionId: string) => {
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                const imgUrl = reader.result as string;
+                setSections((prevSections) =>
+                    prevSections.map((section) =>
+                        section.id === sectionId ? { ...section, data: { ...section.data, image: imgUrl } } : section
+                    )
+                );
+            }
+            reader.readAsDataURL(file);
+        }
+    }
 
     const renderSectionForm = (section: Section) => {
         const handleInputChange = (id: string, field: string, value: string) => {
@@ -114,6 +130,19 @@ export default function Editor({sections, setSections, resumeRef}: EditorProps) 
                         <button type="button" onClick={() => handleDeleteSection(section.id)}>Delete</button>
                     </div>
                 );
+            case 'Portfolio':
+                return (
+                    <div className="section-options">
+                        <input name='Project name' placeholder="Project name"
+                        value={section.data.projectName || ""}
+                        onChange={(e) => handleInputChange(section.id, "projectName", e.target.value)}/>
+                        <input name='Description' placeholder="Description"
+                        value={section.data.description || ""}
+                        onChange={(e) => handleInputChange(section.id, "description", e.target.value)}/>
+                        <UploadImage onImageUpload={(file) => handleImageUpload(file, section.id)} showPreview={false}/>
+                        <button type="button" onClick={() => handleDeleteSection(section.id)}>Delete</button>
+                    </div>
+                );
             default:
                 return null;
         }
@@ -136,6 +165,7 @@ export default function Editor({sections, setSections, resumeRef}: EditorProps) 
                     <option value="Skills">Skills</option>
                     <option value="Certificates">Certificate</option>
                     <option value="About">About me</option>
+                    <option value="Portfolio">Portfolio</option>
                 </select>
                 <button type="button" onClick={handleAddSection}>Add section</button>
             </div>
