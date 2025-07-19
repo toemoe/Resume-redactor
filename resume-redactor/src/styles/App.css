@@ -13,8 +13,7 @@
   padding: 1rem;
   gap: 1rem;
   border: 1px solid var(--gray);
-  margin-left: 5rem;
-  margin-right: 5rem;
+  margin: 3rem;
   background-color: var(--graylight);
   color: var(--blacklight);
   @media screen and (max-width: 768px){
@@ -47,7 +46,7 @@
   background-color: var(--white);
 }
 
-.editor input {
+.editor input, textarea {
   border-radius: 3px;
   border: 1px solid var(--graylight);
   outline: none;

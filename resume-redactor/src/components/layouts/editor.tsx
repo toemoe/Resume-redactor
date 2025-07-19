@@ -102,6 +102,12 @@ export default function Editor({sections, setSections, resumeRef}: EditorProps) 
                         <input type='number' name="Phone" placeholder="Phone" style={{ appearance: 'none'}}
                         value={section.data.phone || ""}
                         onChange={(e) => handleInputChange(section.id, "phone", e.target.value)}/>
+                        <input name="Country" placeholder='Country'
+                        value={section.data.country || ""}
+                        onChange={(e) => handleInputChange(section.id, "country", e.target.value)}/>
+                        <input name="City" placeholder='City'
+                        value={section.data.city || ""}
+                        onChange={(e) => handleInputChange(section.id, "city", e.target.value)}/>
                         <textarea name="About" placeholder="About"
                         value={section.data.about || ""}
                         onChange={(e) => handleInputChange(section.id, "about", e.target.value)}/>
