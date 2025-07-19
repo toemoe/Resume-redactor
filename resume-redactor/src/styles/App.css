@@ -6,6 +6,13 @@
   --graylight: #e6e6e6;
 }
 
+body {
+  background-color: var(--graylight);
+  @media screen and (max-width: 768px) {
+    background-color: var(--blacklight);
+  }
+}
+
 .main-content {
   display: flex;
   flex-direction: row;
@@ -14,12 +21,13 @@
   gap: 1rem;
   border: 1px solid var(--gray);
   margin: 3rem;
-  background-color: var(--graylight);
+  background-color: var(--blacklight);
   color: var(--blacklight);
   @media screen and (max-width: 768px){
     border: none;
     flex-direction: column;
     align-items: center;
+    background-color: var(--blacklight);
   }
 }
 .resume-preview {
@@ -123,8 +131,14 @@ input[type=number]::-webkit-outer-spin-button {
   display: flex;
   flex-direction: row;
   gap: 2rem;
+  @media screen and (max-width: 768px) {
+    gap: 1rem; 
+  }
 }
 
 .preview-contact p {
   font-size: 0.9rem;
+  @media screen and (max-width: 768px){
+    font-size: 0.75rem;
+  }
 }
