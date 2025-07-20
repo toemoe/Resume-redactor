@@ -28,6 +28,8 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: var(--blacklight);
+    margin: 0.5rem 2rem;
+    padding: 0rem;
   }
 }
 .resume-preview {
@@ -39,6 +41,9 @@ body {
   background-color: var(--white);
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
   color: var(--blacklight);
+  @media screen and (max-width: 768px){
+    margin: 0.5rem 2rem;
+  }
 }
 .resume-preview h2 {
   border-bottom: 1.5px solid var(--blacklight);
