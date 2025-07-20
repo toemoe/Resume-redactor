@@ -10,6 +10,7 @@
   - Certificates
   - Skills
   - About Me
+  - Portfolio
 - Live preview of the resume
 - Display of personal info at the top
 - Real-time editing and auto-formatting
